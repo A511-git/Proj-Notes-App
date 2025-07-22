@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+:root {
+    --back-color: #f2f4f8;
+    --logo-color: black;
+    --text-color: #191b23;
+    --sec-text-color: #3c404f;
+    --button-color: #8b90ff;
+    --card-background-color: white;
+    --button-text-color: white;
+    --transparent-color-90: rgba(247, 247, 247, 0.9);
+    --transparent-color-100: rgba(247, 247, 247, 1);
+
+    --button-padding: 12px 24px;
+}
+
+body {
+    background-color: var(--back-color);
+    margin: 2rem;
+}
+
+nav {
+    margin: 0 0 2rem 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+nav h1 {
+    font-size: 32px;
+    width: max-content;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.6em;
+    width: max-content;
+}
+
+.theme {
+    background-color: var(--transparent-color-100);
+}
+
+button {
+    font-size: 16px;
+    padding: var(--button-padding);
+    border-radius: 8px;
+    background-color: var(--button-color);
+    border: 0px;
+    color: var(--button-text-color);
+}
+
+.contentArea {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--card-background-color);
+    padding:24px;
+}
