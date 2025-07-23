@@ -9,10 +9,11 @@
 
 :root {
     --back-color: #f2f4f8;
-    --logo-color: black;
+    --rev-back-color:black;
     --text-color: #191b23;
     --sec-text-color: #3c404f;
-    --button-color: #8b90ff;
+    --positive-button-color: #8b90ff;
+    --base-color:#f2f4f8;
     --card-background-color: white;
     --button-text-color: white;
     --transparent-color-90: rgba(247, 247, 247, 0.9);
@@ -24,6 +25,68 @@
 body {
     background-color: var(--back-color);
     margin: 2rem;
+    min-height: 100%;
+}
+
+.contentAdder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.addNewNote {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    color: var(--text-color);
+    justify-content: center;
+    background-color: var(--card-background-color);
+    padding: 24px;
+    width: 500px;
+    border-radius: 15px;
+}
+
+.addNewNote .formHeading .heading{
+    font-weight: 600;
+    font-size: 24px;   
+}
+
+.addNewNote .formHeading{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 12px;
+}
+
+.addNewNote form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+}
+
+input, textarea{
+    padding: 12px;    
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--base-color);
+}
+.addNewNote .title, .addNewNote .content{
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;    
+}
+
+.addNewNote .formButton{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.addNewNote .cancel{
+    background-color: var(--base-color);
+    color: var(--rev-back-color);
 }
 
 nav {
@@ -55,7 +118,7 @@ button {
     font-size: 16px;
     padding: var(--button-padding);
     border-radius: 8px;
-    background-color: var(--button-color);
+    background-color: var(--positive-button-color);
     border: 0px;
     color: var(--button-text-color);
 }
@@ -68,5 +131,9 @@ button {
 
 .card {
     background-color: var(--card-background-color);
-    padding:24px;
+    padding: 24px;
+}
+
+.hidden{
+    display: none;
 }
