@@ -9,7 +9,33 @@
 </head>
 
 <body>
-    <div class="pageContent blur">
+    <div class="contentAdder inActive">
+        <div class="addNewNote">
+            <div class="formHeading">
+                <p class="heading">Add New Note</p>
+                <p>X</p>
+            </div>
+            <form>
+                <div class="title">
+                    <label for="title">Title</label>
+                    <input type="text" placeholder="Enter note here...">
+                </div>
+
+                <div class="content">
+                    <label for="content">Content</label>
+                    <textarea name="content" id="content-input" placeholder="Write your note here..."
+                        rows="4"></textarea>
+                </div>
+
+                <div class="formButton">
+                    <button class="cancel">Cancel</button>
+                    <button class="saveNote">Save Note</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="pageContent">
         <nav>
             <h1>Quick Notes</h1>
             <div class="nav-buttons">
@@ -20,35 +46,15 @@
             </div>
         </nav>
 
-        <div class="contentAdder hidden">
-            <div class="addNewNote">
-                <div class="formHeading">
-                    <p class="heading">Add New Note</p>
-                    <p>X</p>
-                </div>
-                <form>
-                    <div class="title">
-                        <label for="title">Title</label>
-                        <input type="text" placeholder="Enter note here...">
-                    </div>
-
-                    <div class="content">
-                        <label for="content">Content</label>
-                        <textarea name="content" id="content-input" placeholder="Write your note here..."
-                            rows="4"></textarea>
-                    </div>
-
-                    <div class="formButton">
-                        <button class="cancel">Cancel</button>
-                        <button class="saveNote">Save Note</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
         <div class="contentArea">
             <div class="card">
-                <h3 class="subject">Bokka Chan</h3>
+                <div class="heading">
+                    <h3 class="subject">Bokka Chan</h3>
+                    <div class="modify inActive">
+                        <p class="edit">🖋️</p>
+                        <p class="delete">✖️</p>
+                    </div>
+                </div>
                 <p class="details">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam officia accusantium
                     eos
                     atque, impedit dolores omnis exercitationem debitis, provident eveniet dolorum esse magni delectus
@@ -68,6 +74,13 @@
                     eos
                     atque, impedit dolores omnis exercitationem debitis, provident eveniet dolorum esse magni delectus
                     natus, assumenda incidunt facere culpa. Consequatur dignissimos natus provident vero necessitatibus
+                    qui,</p>
+            </div>
+            <div class="card">
+                <h3 class="subject">Bokka Chan</h3>
+                <p class="details">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam officia accusantium
+                    eos
+                   tatibus
                     qui,
                     eaque modi similique voluptates nihil, tenetur obcaecati facere reprehenderit quos sed fugit
                     voluptas
@@ -79,32 +92,7 @@
             </div>
             <div class="card">
                 <h3 class="subject">Bokka Chan</h3>
-                <p class="details">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam officia accusantium
-                    eos
-                    atque, impedit dolores omnis exercitationem debitis, provident eveniet dolorum esse magni delectus
-                    natus, assumenda incidunt facere culpa. Consequatur dignissimos natus provident vero necessitatibus
-                    qui,
-                    eaque modi similique voluptates nihil, tenetur obcaecati facere reprehenderit quos sed fugit
-                    voluptas
-                    quis! Sequi vitae ducimus eaque explicabo animi non suscipit nemo voluptas quo ipsam nobis vero
-                    dolorum
-                    corporis sit quibusdam, ullam provident quis perferendis, necessitatibus eius magni eos cum? Labore,
-                    sit
-                    error?</p>
-            </div>
-            <div class="card">
-                <h3 class="subject">Bokka Chan</h3>
-                <p class="details">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam officia accusantium
-                    eos
-                    atque, impedit dolores omnis exercitationem debitis, provident eveniet dolorum esse magni delectus
-                    natus, assumenda incidunt facere culpa. Consequatur dignissimos natus provident vero necessitatibus
-                    qui,
-                    eaque modi similique voluptates nihil, tenetur obcaecati facere reprehenderit quos sed fugit
-                    voluptas
-                    quis! Sequi vitae ducimus eaque explicabo animi non suscipit nemo voluptas quo ipsam nobis vero
-                    dolorum
-                    corporis sit quibusdam, ullam provident quis perferendis, necessitatibus eius magni eos cum? Labore,
-                    sit
+                <p class="details">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam off
                     error?</p>
             </div>
             <div class="card">
