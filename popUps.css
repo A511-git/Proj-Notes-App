@@ -1,0 +1,100 @@
+/* Global CSS */
+
+.popup-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.popup-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 500;
+    color: var(--text-color);
+    background-color: var(--card-background-color);
+    padding: var(--space);
+    border-radius: 15px;
+}
+
+.popup-button {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-small);
+    justify-content: flex-end;
+}
+
+.negative {
+    background-color: var(--base-color);
+    color: var(--rev-back-color);
+}
+
+/* Global CSS ENDS */
+
+
+/* Add New Text */
+
+.add-content-body{    
+    width: min(90vw, 500px);
+}
+
+.add-content-body .heading {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.add-content-body .add-content-heading {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: var(--space-small);
+}
+
+.add-content-body form {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--space);
+}
+
+input,
+textarea {
+    padding: var(--space-small);
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--base-color);
+}
+
+.add-content-title,
+.add-content-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--space-small);
+}
+
+/* Add New Text ENDS*/
+
+/* Delete Content */
+.delete-content-popup{
+    width: max-content;
+}
+
+.delete-content-body{
+    gap: var(--space-small);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Delete Content ENDS */
+
+.add-content-active,
+.delete-content-active
+{
+    display: flex;
+}

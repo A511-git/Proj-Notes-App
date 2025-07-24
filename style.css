@@ -21,13 +21,15 @@
 
     --button-padding: 12px 24px;
     --space: 24px;
-    --space-small:12px;
+    --space-small: 12px;
 }
 
 body {
     background-color: var(--back-color);
     min-height: 100%;
-    padding: 2rem;
+}
+.page-content{
+    padding: var(--space);
 }
 
 
@@ -39,167 +41,8 @@ button {
     border: 0px;
     color: var(--button-text-color);
 }
-
-/* Add New Text */
-
-.contentAdder {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    border-radius: 15px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-.addNewNote {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-weight: 500;
-    color: var(--text-color);
-    background-color: var(--card-background-color);
-    padding: var(--space);
-    border-radius: 15px;
-    width: min(90vw, 500px);
-
-}
-
-.addNewNote .formHeading .heading {
-    font-weight: 600;
-    font-size: 24px;
-}
-
-.addNewNote .formHeading {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: var(--space-small);
-}
-
-.addNewNote form {
-    display: flex;
-    flex-direction: column;
-    row-gap: var(--space);
-}
-
-input,
-textarea {
-    padding: var(--space-small);
-    font-size: 1rem;
-    border-radius: 10px;
-    border: none;
-    background-color: var(--base-color);
-}
-
-.addNewNote .title,
-.addNewNote .content {
-    display: flex;
-    flex-direction: column;
-    row-gap: var(--space-small);
-}
-
-.addNewNote .formButton {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-small);
-    justify-content: flex-end;
-}
-
-.addNewNote .cancel {
-    background-color: var(--base-color);
-    color: var(--rev-back-color);
-}
-
-/* Add New Text ENDS */
-
-
-/* NavBAR */
-
-nav {
-    margin: 0 0 2rem 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-nav h1 {
-    font-size: 32px;
-    width: max-content;
-}
-
-.nav-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 1.6em;
-    width: max-content;
-}
-
-.theme {
-    background-color: var(--transparent-color-100);
-}
-
-/* NavBar ENDS */
-
-
-
-/* Content Area  */
-
-.contentArea {
-    columns: min(80vw,300px);
-    gap: var(--space);    
-}
-
-.card {
-    background-color: var(--card-background-color);
-    break-inside: avoid;
-    margin-bottom: var(--space);
-    padding: var(--space);
-    border-radius: 15px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: var(--space-small);
-}
-
-.heading{
-    display: flex;
-    justify-content: space-between;
-}
-
-.modify{
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-small);
-}
-
-.modify p{
-    background-color: var(--base-color);
-    padding: 2px;
-    border-radius: 5px;
-}
-
-.delete:hover{
-    background-color: red;
-}
-
-
-
-/* Content Area ENDS  */
-
-
-/* Activators */
-
-.inActive{
-    display: none;
-}
-
 .blurActive {
     filter: blur(4px);
-    pointer-events: none; /* Prevent clicking background */
+    pointer-events: none;
+    /* Prevent clicking background */
 }

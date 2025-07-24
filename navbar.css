@@ -1,0 +1,41 @@
+
+nav {
+    margin: 0;
+    padding: var(--space);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    background-color: var(--back-color);
+}
+
+nav h1 {
+    font-size: 32px;
+    width: max-content;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.6em;
+    width: max-content;
+}
+
+.theme {
+    background-color: var(--transparent-color-100);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.theme:hover{
+    background-color: var(--positive-button-color);
+}
+
+.theme p{
+    display: none;
+}
+
+.theme p.theme-active{
+    display: block;
+}
