@@ -1,7 +1,7 @@
 /* First Note */
 
 .first-note-container {
-    display: flex;
+    display: none;
     padding: calc(3 * var(--space)) 0 0 calc(3 * var(--space));
     ;
 }
@@ -36,30 +36,28 @@
     opacity: 0.9;
 }
 
-.first-note-inactive {
-    display: none;
-}
-
 @media (max-width: 620px) {
     .first-note-container {
         padding: 0;
         position: relative;
         top: calc(3 * var(--space));
-        display: flex;
         flex-direction: column;
         align-items: center;
-
     }
 }
 
+
+.first-note-active {
+    display: flex;
+}
 
 /* First Note ENDS */
 
 
 /* Content Area */
 
-.contentArea {
-    columns: min(80vw, 300px);
+.card-container {
+    columns: 300px;
     gap: var(--space);
 }
 

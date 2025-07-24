@@ -16,29 +16,29 @@
         <div class="add-content-body popup-body">
             <div class="add-content-heading">
                 <p class="heading">Add New Note</p>
-                <p>X</p>
+                <button class="cancel negative">X</button>
             </div>
-            <form>
+            <form class="form">
                 <div class="add-content-title">
                     <label for="title">Title</label>
-                    <input type="text" placeholder="Enter note here...">
+                    <input type="text" name="title" placeholder="Enter note here..." required>
                 </div>
 
                 <div class="add-content-content">
                     <label for="content">Content</label>
                     <textarea name="content" id="content-input" placeholder="Write your note here..."
-                        rows="4"></textarea>
+                        rows="4" required></textarea>
                 </div>
 
                 <div class="popup-button">
-                    <button class="negative">Cancel</button>
-                    <button class="positive">Save Note</button>
+                    <button class="cancel negative">Cancel</button>
+                    <button class="save positive">Save Note</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <div class="delete-content-popup popup-container">
+    <div class="delete-content-popup popup-container ">
         <div class="delete-content-body popup-body">
             <p>Are you sure you want to delete this note ?</p>
             <div class="popup-button">
@@ -49,7 +49,7 @@
 
     </div>
 
-    <div class="fullPage">
+    <div class="full-page">
         <nav>
             <h1>Quick Notes</h1>
             <div class="nav-buttons">
@@ -64,34 +64,38 @@
 
         <div class="page-content">
 
-            <div class="first-note-container">
-            <div class="first-note-body">
-                <div class="first-note-text">
-                    <p class="first-note-text-heading">No notes yet!</p>
-                    <p class="first-note-text-para">Create your first node to get started!</p>
+            <div class="first-note-container first-note-container">
+                <div class="first-note-body">
+                    <div class="first-note-text">
+                        <p class="first-note-text-heading">No notes yet!</p>
+                        <p class="first-note-text-para">Create your first node to get started!</p>
+                    </div>
+                    <button class="add-note">+ Add Your First Note</button>
                 </div>
-                <button>+ Add Your First Note</button>
             </div>
 
-            
-        </div>
+            <div class="card-container">
+
+            </div>
+
+
         </div>
 
         <template id="card-template">
-        <div class="card">
-            <div class="card-heading">
-                <h3 class="card-subject"></h3>
-                <div class="card-modify">
-                    <p class="card-edit">🖋️</p>
-                    <p class="card-delete">✖️</p>
+            <div class="card">
+                <div class="card-heading">
+                    <h3 class="card-subject"></h3>
+                    <div class="card-modify">
+                        <p class="card-edit">🖋️</p>
+                        <p class="card-delete">✖️</p>
+                    </div>
                 </div>
+                <p class="card-detail"></p>
             </div>
-            <p class="card-details"></p>
-        </div>
-    </template>
+        </template>
 
 </body>
-
+<script src="updateNote.js"></script>
 <script src="script.js"></script>
 
 </html>

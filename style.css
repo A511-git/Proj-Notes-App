@@ -41,7 +41,12 @@ button {
     border: 0px;
     color: var(--button-text-color);
 }
-.blurActive {
+
+button:hover{
+    filter: brightness(90%);
+}
+
+.blur-active {
     filter: blur(4px);
     pointer-events: none;
     /* Prevent clicking background */
