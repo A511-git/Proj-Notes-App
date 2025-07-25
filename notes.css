@@ -75,14 +75,17 @@
 }
 
 .card-heading {
-    display: flex;
-    justify-content: space-between;
+    display: block;
+    position: relative;
 }
 
 .card-modify {
     display: none;
-    flex-wrap: wrap;
     gap: var(--space-small);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
 }
 
 .card-modify p {

@@ -9,6 +9,7 @@ nav {
     position: sticky;
     top: 0;
     background-color: var(--back-color);
+    z-index: 999;
 }
 
 nav h1 {
