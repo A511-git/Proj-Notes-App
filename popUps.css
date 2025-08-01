@@ -32,16 +32,24 @@
 }
 
 .negative {
-    background-color: var(--base-color);
+    background-color: var(--back-color);
     color: var(--rev-back-color);
 }
 
 /* Global CSS ENDS */
 
+/* Popup Card */
+.card-center {
+    width: min(90vw, 500px);    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* Popup Card ENDS*/
 
 /* Add New Text */
 
-.add-content-body{    
+.add-content-body {
     width: min(90vw, 500px);
 }
 
@@ -68,24 +76,30 @@ textarea {
     font-size: 1rem;
     border-radius: 10px;
     border: none;
-    background-color: var(--base-color);
+    background-color: var(--back-color);
 }
 
 .add-content-title,
+.add-content-image,
 .add-content-content {
     display: flex;
     flex-direction: column;
     row-gap: var(--space-small);
 }
 
+.add-content-image .image{
+    display: none;
+    
+}
+
 /* Add New Text ENDS*/
 
 /* Delete Content */
-.delete-content-popup{
+.delete-content-popup {
     width: max-content;
 }
 
-.delete-content-body{
+.delete-content-body {
     gap: var(--space-small);
     justify-content: center;
     align-items: center;
@@ -94,7 +108,6 @@ textarea {
 /* Delete Content ENDS */
 
 .add-content-active,
-.delete-content-active
-{
+.delete-content-active {
     display: flex;
 }

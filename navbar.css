@@ -1,42 +1,140 @@
-
 nav {
     margin: 0;
     padding: var(--space);
+    background-color: var(--back-color);
+    z-index: 999;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+}
+
+.nav1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    position: sticky;
-    top: 0;
-    background-color: var(--back-color);
-    z-index: 999;
+    z-index: 3;
 }
 
-nav h1 {
+.nav1 h1 {
     font-size: 32px;
     width: max-content;
+    color: var(--rev-back-color);
 }
 
-.nav-buttons {
+.nav1-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 0 1.6em;
     width: max-content;
 }
 
-.theme {
+.setting {
     background-color: var(--transparent-color-100);
     transition: background-color 0.2s ease-in-out;
 }
 
-.theme:hover{
+.setting:hover {
     background-color: var(--positive-button-color);
 }
 
-.theme p{
+.nav2 {
     display: none;
+    grid-template-columns: auto fit-content(100%);
+    gap: var(--space);
+    align-items: start;
 }
 
-.theme p.theme-active{
-    display: block;
+.nav2-menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+    color: var(--rev-back-color);
+    order: 2;
+    width: fit-content;
+}
+
+.nav2-menu p {
+    width: fit-content;
+    text-decoration: underline;
+}
+
+.nav2-menu p:hover {
+    scale: 1.2;
+    font-weight: bold;
+}
+
+.menu-body {
+    order: 1;
+}
+
+.theme {
+    display: none;
+    justify-content: center;
+}
+
+.theme ul {
+    display: flex;
+    gap: var(--space);
+}
+
+.theme ul li {
+    list-style: none;
+}
+
+.theme ul li button{
+    background-color: var(--base-color);
+    color: var(--rev-back-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    padding: 4px 12px;
+}
+.theme ul li button:hover{
+    filter: brightness(100%);
+}
+
+.theme ul li button p:hover {
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+}
+
+.layout {
+    display: none;
+    justify-content: center;
+    gap: var(--space);
+}
+
+.layout img {
+    width: 100px;
+}
+
+.layout img:hover {
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+}
+
+
+.nav2-active {
+    display: grid;
+}
+
+.menu-p-active {
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+    font-weight: bold;
+}
+
+.menu-body-active {
+    display: flex;
+}
+
+.scroll-up {
+    position: sticky;
+    top: 0px;
+    transform: translateY(-100%);
+    transition: transform 3s ease-in;
+}
+
+.scroll-up.scroll-up-active {
+    transform: translateY(0%);
 }

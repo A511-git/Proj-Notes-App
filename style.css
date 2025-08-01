@@ -8,21 +8,43 @@
 }
 
 :root {
+    
+    --button-padding: 12px 24px;
+    --space: 24px;
+    --space-small: 12px;
+}
+
+.light{
     --back-color: #f2f4f8;
     --rev-back-color: black;
     --text-color: #191b23;
     --sec-text-color: #3c404f;
     --positive-button-color: #8b90ff;
-    --base-color: #f2f4f8;
+    --base-color: white;
     --card-background-color: white;
     --button-text-color: white;
     --transparent-color-90: rgba(247, 247, 247, 0.9);
     --transparent-color-100: rgba(247, 247, 247, 1);
-
-    --button-padding: 12px 24px;
-    --space: 24px;
-    --space-small: 12px;
 }
+
+.dark {
+  --back-color: #0f0f0f;
+  --rev-back-color: white;
+  --text-color: #e8e8e8;
+  --sec-text-color: #bbbbbb;
+  --positive-button-color: #5f73ff;
+  --base-color: #121212;
+  --card-background-color: #1e1e1e;
+  --button-text-color: white;
+  --transparent-color-90: rgba(15, 15, 15, 0.9);
+  --transparent-color-100: rgba(15, 15, 15, 1);
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
 
 body {
     background-color: var(--back-color);
@@ -50,4 +72,8 @@ button:hover{
     filter: blur(4px);
     pointer-events: none;
     /* Prevent clicking background */
+}
+
+body, .nav, .setting, .layout, .menu-body, .theme {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
