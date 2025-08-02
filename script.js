@@ -4,15 +4,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const firstNote = document.querySelector(".first-note-container");
     const nav = document.querySelector(".nav");
     const pageContent = document.querySelector(".page-content");
+    const cardContainer = document.querySelector("#card-container");
+    const cardModify = document.querySelector(".card-modify");
 
-    // 🔹 NAVIGATION LISTENER
-    nav.addEventListener("click", (e) => {
-        e.preventDefault();
+    checkFirstNote();
+
+
+    document.addEventListener("click", (e) => {
         const action = e.target.closest("[data-action]")?.dataset.action;
+        const card = e.target.closest(".card");
+
+        
+        
         if (!action) return;
 
         switch (action) {
-            case "add-note": addnote(); break;
+
+            //nav
+            case "add-note": addNote(); break;
             case "open-settings": toggleSettings(); break;
             case "toggle-theme": toggleThemeMenu(); break;
             case "toggle-layout": toggleLayoutMenu(); break;
@@ -20,6 +29,23 @@ document.addEventListener("DOMContentLoaded", () => {
             case "theme-dark": setTheme("dark"); break;
             case "layout-grid": setLayout("grid"); break;
             case "layout-masonry": setLayout("masonry"); break;
+
+            //body
+
+            // add note popup
+            case "add-note": addNote(); break;
+            case "popup-cancel": popupCancel(); break;
+            case "popup-save": popupSave(); break;
+
+            // card content
+            case "card-edit": cardEdit(e.target.closest(".card")); break;
+            case "card-delete": cardDelete(e.target.closest(".card")); break;
+
+            //delete popup
+            case "delete-no": deleteNo(); break;
+            case "delete-yes": deleteYes(); break;
+
+                e.preventDefault();
         }
     });
 
@@ -57,16 +83,14 @@ document.addEventListener("DOMContentLoaded", () => {
         lastScrollY = currentScrollY;
     });
 
+    cardContainer.addEventListener('pointerenter', (e) => {
+        const card = e.target.closest(".card");
+        if (!card) return;
 
-    // 🔹 MAIN BODY LISTENER
-    pageContent.addEventListener("click", (e) => {
-        const action = e.target.closest("[data-action]")?.dataset.action;
-        if (!action) return;
-
-        switch (action) {
-            case "add-note": addNote(); break;
-            case "delete-note": deleteNote(e.target); break;
-            // other body actions...
+        const modifyButtons = card.querySelector(".card-modify");
+        if (modifyButtons) {
+            modifyButtons.classList.add("card-modify-active");
         }
-    });
+    }, { capture: true });
+
 });

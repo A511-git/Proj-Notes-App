@@ -74,6 +74,23 @@
     padding: var(--space-small);
 }
 
+/* Mobile */
+@media (max-width: 600px) {
+    .card-container-grid,
+    .card-container-masonry{
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tablet */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .card-container-grid,
+    .card-container-masonry{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
 .card {
     background-color: var(--card-background-color);
     padding: var(--space);
@@ -137,7 +154,7 @@
     background-color: red;
 }
 
-.modify-active {
+.card-modify-active {
     display: flex;
 }
 

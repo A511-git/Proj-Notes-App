@@ -32,11 +32,21 @@ nav {
 
 .setting {
     background-color: var(--transparent-color-100);
-    transition: background-color 0.2s ease-in-out;
+    /* transition: background-color 0.2s ease-in-out; */
 }
-
-.setting:hover {
+/* .setting:hover {
     background-color: var(--positive-button-color);
+} */
+
+.setting p{
+    transition: all 0.3 ease;
+    scale: 200%;
+}
+.setting p:hover{
+    transform: rotate(60deg);
+}
+.setting p:not[:hover]{
+    transform: rotate(0deg);
 }
 
 .nav2 {
