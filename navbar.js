@@ -1,10 +1,3 @@
-
-const nav = document.querySelector(".nav");
-const nav2 = document.querySelector(".nav2");
-const setting = nav.querySelector(".setting");
-const theme = nav.querySelector(".theme");
-const layout = nav.querySelector(".layout");
-
 function toggleSettings() {
     if(nav2.classList.contains("nav2-active")){
         nav2.classList.remove("nav2-active");
@@ -13,7 +6,6 @@ function toggleSettings() {
         nav2.classList.add("nav2-active");
     }
 }
-
 function toggleThemeMenu() {
     layout.classList.remove("menu-body-active")
     theme.classList.add("menu-body-active")
@@ -24,11 +16,10 @@ function toggleLayoutMenu() {
 }
 
 function setTheme(value) {
-    document.body.className = value;
+    document.body.className = localStorage.getItem("theme");
 }
 
-function setLayout(value) {
-    const layout=document.querySelector("#card-container");
-    layout.className=`card-container-${value}`;
-    masonry();
+function setLayout() {
+    cardContainer.className=`card-container-${localStorage.getItem("layout")}`;
+    if(localStorage.getItem("layout")=="masonry") masonry();
 }

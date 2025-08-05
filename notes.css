@@ -62,7 +62,7 @@
 
 .card-container-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     gap: var(--space) ;
     padding: var(--space-small);
 }
@@ -101,14 +101,19 @@
     flex-wrap: wrap;
     gap: var(--space-small);
 }
+.card:hover {
+    transform: scale(1.01);
+}
 
 .card-heading {
     display: block;
     position: relative;
     color: var(--text-color);
+    font-size: 1.3rem;
 }
 
 .card-modify {
+    pointer-events: none;
     display: none;
     gap: var(--space-small);
     position: absolute;
@@ -116,12 +121,24 @@
     right: 0;
     z-index: 3;
 }
+.card:hover .card-modify{
+    display: flex;
+}
 
 .card-modify p {
+    pointer-events: auto;
     background-color: var(--base-color);
     padding: 2px;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
+    background-color: rgba(128, 128, 128, 0.121);
+}
+.card-edit,
+.card-delete {
+    cursor: pointer;
+}
+.card-delete:hover {
+    background-color: red;
 }
 
 .card-body{
@@ -130,7 +147,7 @@
     flex-wrap: wrap;
     gap: var(--space-small);
     max-height: 600px;
-    overflow-y: scroll;
+    overflow-y: auto;
     margin-right: calc(-1*var(--space-small));
     scrollbar-color: var(--rev-back-color) var(--card-background-color);
 }
@@ -150,12 +167,5 @@
     color: var(--sec-text-color);
 }
 
-.card-delete:hover {
-    background-color: red;
-}
-
-.card-modify-active {
-    display: flex;
-}
 
 /* Content Area ENDS*/

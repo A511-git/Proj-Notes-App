@@ -1,6 +1,6 @@
-const fullPage = document.querySelector(".full-page");
-const cardContainer = document.querySelector("#card-container");
-const pageContent = document.querySelector(".page-content");
+
+
+
 
 function checkFirstNote() {
     if (cardContainer.children.length) {
@@ -19,23 +19,41 @@ function popupCancel() {
     popupContainer.classList.remove("add-content-active");
     fullPage.classList.remove("blur-active");
 }
-function popupSave() {
+function popupSave(card) {
     const cardTemplate = document.querySelector("#card-template");
     const form = document.querySelector("form");
     const newCard = cardTemplate.content.cloneNode(true);
     const formData = new FormData(form);
     const title = formData.get("title");
     const content = formData.get("content");
+    
 
+    // if card is being edited
+    if(heading=="Edit Card"){
+        card.querySelector(".card-heading").innerText=title;
+        card.querySelector(".card-detail").innerText=content;
+    }
+    // if new card added
+    else{
     newCard.querySelector(".card-subject").innerText = title;
     newCard.querySelector(".card-detail").innerText = content;
-    cardContainer.prepend(newCard);
-    console.log("here");
+    cardArrayPush(title,content);
+    cardContainer.append(newCard);
+    }
 
     popupContainer.classList.remove("add-content-active");
     fullPage.classList.remove("blur-active");
 
     checkFirstNote();
 }
-function deleteNo() { }
-function deleteYes() { }
+function deleteNo() {
+    deleteContentContainer.classList.remove("delete-content-active");
+    fullPage.classList.remove("blur-active");
+}
+function deleteYes(card) {
+    card.remove();  
+    deleteContentContainer.classList.remove("delete-content-active");
+    fullPage.classList.remove("blur-active");
+    checkFirstNote();
+    masonry();
+}

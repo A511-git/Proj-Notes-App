@@ -5,27 +5,15 @@ function masonry(){
     const gap = parseInt(getComputedStyle(masonryContainer).getPropertyValue("gap"));
     const gridAutoRows = parseInt(
         getComputedStyle(masonryContainer).getPropertyValue("grid-auto-rows"));
-    console.log(gridAutoRows);
-    console.log("");
-
 
     const column = getComputedStyle(masonryContainer).getPropertyValue("grid-template-columns").split(" ");
     const columnCount = column.length;
     let columnsHeight = new Array(columnCount).fill(0);
 
-    console.log("");
-
-    cards.forEach(card => {
-        console.log(card.clientHeight);
-    });
-
-    console.log("");
-
 
     cards.forEach(card => {
         const cardHeight = (getTrueHeight(card));
         const span = Math.ceil((cardHeight + gap) / (gridAutoRows + gap));
-        console.log(cardHeight + " / " + span);
 
         card.style.gridRowEnd = `span ${span}`
     })
@@ -61,4 +49,8 @@ function masonry(){
         return (height);
     }
 
+}
+
+function display(){
+    localStorage.getItem("cards").forEach
 }

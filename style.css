@@ -5,6 +5,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Poppins, sans-serif;
+    
+    --positive-button-color: #525bff;
+    --transparent-color-90: rgba(247, 247, 247, 0.9);
+    --transparent-color-100: rgba(247, 247, 247, 1);
 }
 
 :root {
@@ -19,12 +23,9 @@
     --rev-back-color: black;
     --text-color: #191b23;
     --sec-text-color: #3c404f;
-    --positive-button-color: #8b90ff;
     --base-color: white;
     --card-background-color: white;
     --button-text-color: white;
-    --transparent-color-90: rgba(247, 247, 247, 0.9);
-    --transparent-color-100: rgba(247, 247, 247, 1);
 }
 
 .dark {
@@ -32,12 +33,9 @@
   --rev-back-color: white;
   --text-color: #e8e8e8;
   --sec-text-color: #bbbbbb;
-  --positive-button-color: #5f73ff;
   --base-color: #121212;
   --card-background-color: #1e1e1e;
   --button-text-color: white;
-  --transparent-color-90: rgba(15, 15, 15, 0.9);
-  --transparent-color-100: rgba(15, 15, 15, 1);
 }
 
 html {

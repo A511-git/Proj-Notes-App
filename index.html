@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create, edit, and save notes directly in your browser using interactive cards. All data is stored locally with JavaScript localStorage — no server needed.">
+    <menu type="context"></menu>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="notes.css">
@@ -21,17 +23,17 @@
             <form class="form">
                 <div class="add-content-title">
                     <label>Title</label>
-                    <input type="text" name="title" placeholder="Enter note here..." required>
+                    <input class="form-title" type="text" name="title" placeholder="Enter note here..." required>
                 </div>
 
                 <div class="add-content-image">
                     <label>Image</label>
-                    <input type="file" name="image" id="image" accept="image/*" multiple>>
+                    <input type="file" name="image" id="image" accept="image/*" multiple>
                 </div>
 
                 <div class="add-content-content">
                     <label>Content</label>
-                    <textarea name="content" id="content-input"
+                    <textarea class="form-content" name="content" id="content-input"
                         placeholder="Write your note here... &#10;Even paste images from clipboard ;)" rows="4"
                         required></textarea>
                 </div>
@@ -44,7 +46,7 @@
         </div>
     </div>
 
-    <div class="delete-content-popup popup-container">
+    <div class="delete-content-container popup-container">
         <div class="delete-content-body popup-body">
             <p>Are you sure you want to delete this note ?</p>
             <div class="popup-button">
@@ -112,157 +114,16 @@
 
             <div id="card-container" class="card-container-grid">
 
-                 <div class="card">
-                    <div class="card-heading">
-                        <h3 class="card-subject">Learn JavaScript</h3>
-                        <div class="card-modify">
-                            <p class="card-edit">🖋️</p>
-                            <p class="card-delete">✖️</p>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <img class="card-image" src="assets/masonry.png" alt="">
-                        <p class="card-detail">
-                            JavaScript is the backbone of interactive web applications. Start by mastering the
-                            fundamentals
-                            such as variables, data types, operators, and functions. Once you understand these basics,
-                            move
-                            <img class="card-image" src="assets/masonry.png" alt="">
-                            to control flow, loops, and objects. Practice by building small programs and gradually
-                            progress
-                            to DOM manipulation. Remember, consistent practice is key, and debugging skills will develop
-                            over time. Eventually, you can explore ES6+ features like arrow functions, template
-                            literals,
-                            and promises for modern coding practices. Practice by building small programs and gradually
-                            progress
-                            to DOM manipulation. Remember, consistent practice is key, and debugging skills will develop
-                            over time. Eventually, you can explore ES6+ features like arrow functions, template
-                            literals,
-                            and promises for modern coding practices.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-heading">
-                        <h3 class="card-subject">CSS Tips for Beginners</h3>
-                        <div class="card-modify">
-                            <p class="card-edit">🖋️</p>
-                            <p class="card-delete">✖️</p>
-                        </div>
-                    </div>
-                    <p class="card-detail">
-                        CSS gives life to your HTML structure by adding style and visual appeal. Start with properties
-                        like color, font-size, and background, then learn advanced concepts like Flexbox and Grid for
-                        layout management. Always keep your styles organized and use variables for reusable values. To
-                        make your designs responsive, leverage media queries and relative units like em or rem. Avoid
-                        inline styles for better maintainability and use CSS transitions and animations to create smooth
-                        effects without relying heavily on JavaScript.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="card-heading">
-                        <h3 class="card-subject">HTML Best Practices</h3>
-                        <div class="card-modify">
-                            <p class="card-edit">🖋️</p>
-                            <p class="card-delete">✖️</p>
-                        </div>
-                    </div>
-                    <p class="card-detail">
-                        Semantic HTML is essential for creating structured and accessible websites. Instead of using
-                        divs for everything, use tags like &lt;header&gt;, &lt;section&gt;, and &lt;footer&gt; to define
-                        your page layout. Include alt attributes for images, label elements for forms, and organize your
-                        content for readability. Proper HTML ensures that search engines and assistive technologies
-                        understand your content, improving SEO and accessibility. Always validate your HTML to avoid
-                        rendering issues across different browsers.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="card-heading">
-                        <h3 class="card-subject">Improving Web Performance</h3>
-                        <div class="card-modify">
-                            <p class="card-edit">🖋️</p>
-                            <p class="card-delete">✖️</p>
-                        </div>
-                    </div>
-                    <p class="card-detail">
-                        A fast-loading website improves user experience and boosts SEO rankings. Optimize your CSS and
-                        JavaScript by minifying files and using compression tools like Gzip or Brotli. Implement lazy
-                        loading for images and videos to reduce initial load time. Take advantage of browser caching and
-                        Content Delivery Networks (CDNs) for faster resource delivery. Monitor performance with tools
-                        like Google Lighthouse and remove render-blocking scripts whenever possible. Every millisecond
-                        counts when it comes to retaining users on your site.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="card-heading">
-                        <h3 class="card-subject">Accessibility in Web Design</h3>
-                        <div class="card-modify">
-                            <div class="modify-button">
-                                <p class="card-edit">🖋️</p>
-                                <p class="card-delete">✖️</p>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="card-detail">
-                        Accessibility ensures that all users, including those with disabilities, can use your website
-                        effectively. Use descriptive alt text for images, provide proper form labels, and make sure your
-                        site is navigable using a keyboard. Implement ARIA attributes when necessary, but do not overuse
-                        them. Test your site using screen readers and color contrast checkers to ensure compliance with
-                        WCAG guidelines. A well-designed accessible website not only improves usability but also
-                        demonstrates inclusivity and professionalism.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="card-heading">
-                        <h3 class="card-subject">Getting Started with React</h3>
-                        <div class="card-modify">
-                            <p class="card-edit">🖋️</p>
-                            <p class="card-delete">✖️</p>
-                        </div>
-                    </div>
-                    <p class="card-detail">
-                        React is a powerful JavaScript library for building user interfaces. Begin by learning how to
-                        create functional components and manage props and state. Understand how JSX works and how it
-                        simplifies UI creation. Move on to hooks like useState and useEffect for handling state and side
-                        effects. Organize your application into reusable components and follow best practices like
-                        lifting state up and using keys in lists. Finally, learn about routing and state management
-                        libraries like Redux for complex applications.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="card-heading">
-                        <h3 class="card-subject">Version Control with Git</h3>
-                        <div class="card-modify">
-                            <p class="card-edit">🖋️</p>
-                            <p class="card-delete">✖️</p>
-                        </div>
-                    </div>
-                    <p class="card-detail">
-                        Git is an essential tool for developers to manage code changes and collaborate effectively.
-                        Learn basic commands such as git init, git add, git commit, and git push. Use branches to work
-                        on features independently without disrupting the main codebase. Familiarize yourself with
-                        merging and resolving conflicts to ensure smooth collaboration. Hosting platforms like GitHub
-                        and GitLab allow you to share repositories, manage issues, and collaborate with other developers
-                        in real-time. Version control is a must-have skill for any professional developer.
-                    </p>
-                </div>
-
             </div>
         </div>
 
         <template id="card-template">
-            <div data-action="card" class="card">
+            <div class="card">
                 <div class="card-heading">
-                    <h3 class="card-subject"></h3>
+                    <p class="card-subject"></p>
                     <div data-action="card-modify" class="card-modify">
-                        <p class="card-edit">🖋️</p>
-                        <p class="card-delete">✖️</p>
+                        <p data-action="card-edit" class="card-edit">🖋️</p>
+                        <p data-action="card-delete" class="card-delete">✖️</p>
                     </div>
                 </div>
                 <div class="card-body">
@@ -273,10 +134,11 @@
         </template>
 
 </body>
+
+<script src="script.js"></script>
 <script src="navbar.js"></script>
 <script src="popUp.js"></script>
 <script src="masonry.js"></script>
 <script src="note.js"></script>
-<script src="script.js"></script>
 
 </html>

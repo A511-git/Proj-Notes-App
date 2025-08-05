@@ -1,54 +1,82 @@
+// global variables/constants
+const fullPage = document.querySelector(".full-page");
+const heading = document.querySelector(".heading").innerText;
+const cardTemplate = document.querySelector("#card-template");
+const firstNote = document.querySelector(".first-note-container");
+const pageContent = document.querySelector(".page-content");
+const cardContainer = document.querySelector("#card-container");
+const cardModify = document.querySelector(".card-modify");
+let cardToAction;
+const nav = document.querySelector(".nav");
+const nav2 = document.querySelector(".nav2");
+const setting = nav.querySelector(".setting");
+const theme = nav.querySelector(".theme");
+const layout = nav.querySelector(".layout");
+const popupContainer = document.querySelector(".popup-container");
+const deleteContentContainer = document.querySelector(".delete-content-container");
+// ||=or means either this returned value if null then make it array  
+let cardsArray = JSON.parse(localStorage.getItem("localCards")) || [];
+
+localStorage.setItem("localCards", JSON.stringify(cardsArray));
+
+alert("All content are stored locally with max memory size of 5 MB. So loading of page will gradually become slow as you store more content");
 
 document.addEventListener("DOMContentLoaded", () => {
-    const cardTemplate = document.querySelector("#card-template");
-    const firstNote = document.querySelector(".first-note-container");
-    const nav = document.querySelector(".nav");
-    const pageContent = document.querySelector(".page-content");
-    const cardContainer = document.querySelector("#card-container");
-    const cardModify = document.querySelector(".card-modify");
 
+
+    setLayout();
+    setTheme();
+    pushInitialCardsToDOM();
     checkFirstNote();
 
 
+    //click event listner 
     document.addEventListener("click", (e) => {
         const action = e.target.closest("[data-action]")?.dataset.action;
         const card = e.target.closest(".card");
 
-        
-        
         if (!action) return;
+        e.preventDefault();
+
+
+
+        console.log("action : " + action);
+
 
         switch (action) {
 
             //nav
-            case "add-note": addNote(); break;
             case "open-settings": toggleSettings(); break;
             case "toggle-theme": toggleThemeMenu(); break;
             case "toggle-layout": toggleLayoutMenu(); break;
-            case "theme-light": setTheme("light"); break;
-            case "theme-dark": setTheme("dark"); break;
-            case "layout-grid": setLayout("grid"); break;
-            case "layout-masonry": setLayout("masonry"); break;
+            case "theme-light": localStorage.setItem("theme", "light"); setTheme(); break;
+            case "theme-dark": localStorage.setItem("theme", "dark"); setTheme(); break;
+            case "layout-grid": localStorage.setItem("layout", "grid"); setLayout(); break;
+            case "layout-masonry": localStorage.setItem("layout", "masonry"); setLayout(); break;
+
+            //add note
+            case "add-note": addNote(); break;
 
             //body
 
             // add note popup
-            case "add-note": addNote(); break;
             case "popup-cancel": popupCancel(); break;
-            case "popup-save": popupSave(); break;
+            case "popup-save": popupSave(card); break;
 
             // card content
             case "card-edit": cardEdit(e.target.closest(".card")); break;
-            case "card-delete": cardDelete(e.target.closest(".card")); break;
+            case "card-delete": cardDelete(e.target.closest(".card")); cardToAction = card; break;
 
             //delete popup
             case "delete-no": deleteNo(); break;
-            case "delete-yes": deleteYes(); break;
+            case "delete-yes": deleteYes(cardToAction); break;
 
-                e.preventDefault();
         }
     });
+    //click event ends
 
+
+    //scroll event listner
     let lastScrollY = window.scrollY;
     let lastNavHeight = nav.clientHeight;
 
@@ -82,15 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         lastScrollY = currentScrollY;
     });
+    //scroll event listner ends
 
-    cardContainer.addEventListener('pointerenter', (e) => {
-        const card = e.target.closest(".card");
-        if (!card) return;
 
-        const modifyButtons = card.querySelector(".card-modify");
-        if (modifyButtons) {
-            modifyButtons.classList.add("card-modify-active");
-        }
-    }, { capture: true });
+
 
 });
