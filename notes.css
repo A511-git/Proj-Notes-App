@@ -65,6 +65,7 @@
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     gap: var(--space) ;
     padding: var(--space-small);
+    
 }
 .card-container-masonry {
     display: grid;
@@ -83,7 +84,7 @@
 }
 
 /* Tablet */
-@media (min-width: 600px) and (max-width: 1024px) {
+@media (min-width: 600px) and (max-width: 900px) {
   .card-container-grid,
     .card-container-masonry{
         grid-template-columns: 1fr 1fr;
@@ -100,6 +101,12 @@
     flex-direction: column;
     flex-wrap: wrap;
     gap: var(--space-small);
+
+    min-width: 0; /* Important for flexbox items */
+    overflow-wrap: break-word; /* Break long words */
+    word-wrap: break-word; /* Fallback for older browsers */
+    word-break: break-word; /* Break words if necessary */
+    hyphens: auto; /* Add hyphens when breaking words */
 }
 .card:hover {
     transform: scale(1.01);
@@ -110,6 +117,12 @@
     position: relative;
     color: var(--text-color);
     font-size: 1.3rem;
+
+    min-width: 0; /* Important for flexbox items */
+    overflow-wrap: break-word; /* Break long words */
+    word-wrap: break-word; /* Fallback for older browsers */
+    word-break: break-word; /* Break words if necessary */
+    hyphens: auto; /* Add hyphens when breaking words */
 }
 
 .card-modify {
@@ -165,6 +178,12 @@
 
 .card-detail{
     color: var(--sec-text-color);
+
+    min-width: 0; /* Important for flexbox items */
+    overflow-wrap: break-word; /* Break long words */
+    word-wrap: break-word; /* Fallback for older browsers */
+    word-break: break-word; /* Break words if necessary */
+    hyphens: auto; /* Add hyphens when breaking words */
 }
 
 

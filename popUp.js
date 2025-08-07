@@ -3,9 +3,10 @@
 
 
 function checkFirstNote() {
-    if (cardContainer.children.length) {
-        console.log("check first note");
-        
+    if (cardsArray.length==0) {
+        pageContent.querySelector(".first-note-container").classList.add("first-note-active");
+    }
+    else{
         pageContent.querySelector(".first-note-container").classList.remove("first-note-active");
     }
 }
@@ -26,19 +27,24 @@ function popupSave(card) {
     const formData = new FormData(form);
     const title = formData.get("title");
     const content = formData.get("content");
-    
+
 
     // if card is being edited
-    if(heading=="Edit Card"){
-        card.querySelector(".card-heading").innerText=title;
-        card.querySelector(".card-detail").innerText=content;
+    if (heading === "Edit Card") {
+        card.querySelector(".card-heading").innerText = title;
+        card.querySelector(".card-detail").innerText = content;
+        const index = parseInt(card.getAttribute("data-index"));
+        cardsArray[index] = { title: title, content: content }; 
+        localStorage.setItem("localCards", JSON.stringify(cardsArray));
     }
     // if new card added
-    else{
-    newCard.querySelector(".card-subject").innerText = title;
-    newCard.querySelector(".card-detail").innerText = content;
-    cardArrayPush(title,content);
-    cardContainer.append(newCard);
+    else {
+        newCard.querySelector(".card-subject").innerText = title;
+        newCard.querySelector(".card-detail").innerText = content;
+        let length = cardsArray.length;
+        cardArrayPush(title, content);
+        cardContainer.append(newCard);
+        syncCardsToDOM();
     }
 
     popupContainer.classList.remove("add-content-active");
@@ -46,14 +52,31 @@ function popupSave(card) {
 
     checkFirstNote();
 }
+
+function cardDelete() {
+    deleteContentContainer.classList.add("delete-content-active");
+    fullPage.classList.add("blur-active");
+}
+
 function deleteNo() {
     deleteContentContainer.classList.remove("delete-content-active");
     fullPage.classList.remove("blur-active");
 }
-function deleteYes(card) {
-    card.remove();  
+function deleteYes(cardIndex) {
+
+    card = cardContainer.querySelector(`.card[data-index="${cardIndex}"]`);
+
+    if (card) card.remove();
+
+    cardsArray.splice(cardIndex, 1);
+
+    let cardsArrayLength = cardsArray.length;
+    cardsArray[cardsArrayLength]
+
+
     deleteContentContainer.classList.remove("delete-content-active");
     fullPage.classList.remove("blur-active");
     checkFirstNote();
-    masonry();
+    syncCardsToDOM();
+    localStorage.setItem("localCards", JSON.stringify(cardsArray));
 }

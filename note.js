@@ -20,25 +20,23 @@ function cardEdit(card) {
     form.querySelector(".form-title").value = title;
     form.querySelector(".form-content").value = content;
 }
-function cardDelete(card) {
-    deleteContentContainer.classList.add("delete-content-active");
-    fullPage.classList.add("blur-active");
-}
+
 function cardArrayPush(titlevalue, contentvalue) {
     cardsArray.push({ title: titlevalue, content: contentvalue });
     localStorage.setItem("localCards", JSON.stringify(cardsArray));
 }
 
-function pushInitialCardsToDOM() {
+function syncCardsToDOM() {
     cardContainer.innerHTML = ""; // Clear existing cards
-    cardsArray.forEach(card => {
+    cardsArray.forEach((card, index) => {
         const newCard = cardTemplate.content.cloneNode(true);
 
         newCard.querySelector(".card-subject").innerText = card.title;
         newCard.querySelector(".card-detail").innerText = card.content;
-        cardContainer.append(newCard);
+        newCard.querySelector(".card").setAttribute("data-index", index);
+        cardContainer.prepend(newCard);
 
     })
-    if (localStorage.getItem("layout") == "masonry") masonry();
+    setLayout();
 
 }

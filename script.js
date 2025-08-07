@@ -6,7 +6,7 @@ const firstNote = document.querySelector(".first-note-container");
 const pageContent = document.querySelector(".page-content");
 const cardContainer = document.querySelector("#card-container");
 const cardModify = document.querySelector(".card-modify");
-let cardToAction;
+let cardToAction = null;
 const nav = document.querySelector(".nav");
 const nav2 = document.querySelector(".nav2");
 const setting = nav.querySelector(".setting");
@@ -17,33 +17,29 @@ const deleteContentContainer = document.querySelector(".delete-content-container
 // ||=or means either this returned value if null then make it array  
 let cardsArray = JSON.parse(localStorage.getItem("localCards")) || [];
 
-localStorage.setItem("localCards", JSON.stringify(cardsArray));
-
-alert("All content are stored locally with max memory size of 5 MB. So loading of page will gradually become slow as you store more content");
 
 document.addEventListener("DOMContentLoaded", () => {
 
 
     setLayout();
     setTheme();
-    pushInitialCardsToDOM();
     checkFirstNote();
+    syncCardsToDOM();
 
 
     //click event listner 
     document.addEventListener("click", (e) => {
         const action = e.target.closest("[data-action]")?.dataset.action;
         const card = e.target.closest(".card");
+        if (card) {
+            cardToAction = card.getAttribute("data-index");
+        }
 
         if (!action) return;
         e.preventDefault();
 
-
-
-        console.log("action : " + action);
-
-
         switch (action) {
+
 
             //nav
             case "open-settings": toggleSettings(); break;
@@ -61,14 +57,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // add note popup
             case "popup-cancel": popupCancel(); break;
-            case "popup-save": popupSave(card); break;
+            case "popup-save": popupSave(cardToAction); break;
 
             // card content
             case "card-edit": cardEdit(e.target.closest(".card")); break;
-            case "card-delete": cardDelete(e.target.closest(".card")); cardToAction = card; break;
+            case "card-delete": cardDelete(); break;
 
             //delete popup
             case "delete-no": deleteNo(); break;
+
             case "delete-yes": deleteYes(cardToAction); break;
 
         }

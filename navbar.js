@@ -1,8 +1,8 @@
 function toggleSettings() {
-    if(nav2.classList.contains("nav2-active")){
+    if (nav2.classList.contains("nav2-active")) {
         nav2.classList.remove("nav2-active");
     }
-    else{
+    else {
         nav2.classList.add("nav2-active");
     }
 }
@@ -20,6 +20,16 @@ function setTheme(value) {
 }
 
 function setLayout() {
-    cardContainer.className=`card-container-${localStorage.getItem("layout")}`;
-    if(localStorage.getItem("layout")=="masonry") masonry();
+    let value = localStorage.getItem("layout") || "grid";
+    let array = Array.from(cardContainer.children);
+    array.forEach(card => {
+        card.style.gridRowEnd = "";
+    })
+    cardContainer.className = `card-container-${value}`;
+    if (value === "masonry") {
+        setTimeout(() => {
+            masonry();
+        }, 10);
+
+    }
 }

@@ -1,12 +1,16 @@
 function masonry(){
-    const masonryContainer = document.querySelector("#card-container");
-    const cards = Array.from(masonryContainer.children);
+    if (!cardContainer.className.includes('card-container-masonry')) {
+        return;
+    }
+    
+    const cards = Array.from(cardContainer.children);
 
-    const gap = parseInt(getComputedStyle(masonryContainer).getPropertyValue("gap"));
+
+    const gap = parseInt(getComputedStyle(cardContainer).getPropertyValue("gap"));
     const gridAutoRows = parseInt(
-        getComputedStyle(masonryContainer).getPropertyValue("grid-auto-rows"));
+        getComputedStyle(cardContainer).getPropertyValue("grid-auto-rows"));
 
-    const column = getComputedStyle(masonryContainer).getPropertyValue("grid-template-columns").split(" ");
+    const column = getComputedStyle(cardContainer).getPropertyValue("grid-template-columns").split(" ");
     const columnCount = column.length;
     let columnsHeight = new Array(columnCount).fill(0);
 
@@ -22,7 +26,6 @@ function masonry(){
         const clone = card.cloneNode(true);
         clone.style.position = "absolute";
         clone.style.visibility = "hidden";
-        clone.style.width = `${card.offsetWidth}px`;
         clone.style.height = "auto";
         clone.style.zIndex = -1;
 
@@ -43,14 +46,11 @@ function masonry(){
         clone.style.wordWrap = computedStyle.wordWrap;
         clone.style.wordBreak = computedStyle.wordBreak;
         clone.style.whiteSpace = computedStyle.whiteSpace;
+        
         card.parentNode.prepend(clone);
         let height = parseInt(clone.getBoundingClientRect().height);
         card.parentNode.removeChild(clone);
         return (height);
     }
 
-}
-
-function display(){
-    localStorage.getItem("cards").forEach
 }
