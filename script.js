@@ -17,6 +17,7 @@ const deleteContentContainer = document.querySelector(".delete-content-container
 // ||=or means either this returned value if null then make it array  
 let cardsArray = JSON.parse(localStorage.getItem("localCards")) || [];
 
+let ifCardEdit = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
 

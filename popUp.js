@@ -20,7 +20,7 @@ function popupCancel() {
     popupContainer.classList.remove("add-content-active");
     fullPage.classList.remove("blur-active");
 }
-function popupSave(card) {
+function popupSave(cardIndex) {
     const cardTemplate = document.querySelector("#card-template");
     const form = document.querySelector("form");
     const newCard = cardTemplate.content.cloneNode(true);
@@ -30,12 +30,15 @@ function popupSave(card) {
 
 
     // if card is being edited
-    if (heading === "Edit Card") {
-        card.querySelector(".card-heading").innerText = title;
+    if (ifCardEdit) {
+        card = cardContainer.querySelector(`.card[data-index="${cardIndex}"]`);
+        
+        card.querySelector(".card-subject").innerText = title;
         card.querySelector(".card-detail").innerText = content;
         const index = parseInt(card.getAttribute("data-index"));
         cardsArray[index] = { title: title, content: content }; 
         localStorage.setItem("localCards", JSON.stringify(cardsArray));
+        
     }
     // if new card added
     else {
@@ -51,6 +54,9 @@ function popupSave(card) {
     fullPage.classList.remove("blur-active");
 
     checkFirstNote();
+    ifCardEdit=0; // very important ;)
+    document.querySelector(".form").reset();
+
 }
 
 function cardDelete() {

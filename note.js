@@ -1,4 +1,7 @@
 function cardEdit(card) {
+
+    ifCardEdit=1; // important
+
     popupContainer.classList.add("add-content-active");
     fullPage.classList.add("blur-active");
     popupContainer.querySelector(".heading").innerText = "Edit Card";
@@ -19,6 +22,8 @@ function cardEdit(card) {
     // Set values into the form fields
     form.querySelector(".form-title").value = title;
     form.querySelector(".form-content").value = content;
+
+    
 }
 
 function cardArrayPush(titlevalue, contentvalue) {
